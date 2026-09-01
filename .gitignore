@@ -1,0 +1,6 @@
+.codex-research/
+.next/
+dist/
+.wrangler/
+node_modules/
+*.tsbuildinfo
