@@ -43,6 +43,7 @@ working inside one large file:
 - `components/sections/hero/` — hero video, headline and service positioning
 - `components/sections/overview/` — curved agency overview panel
 - `components/sections/reviews/` — review-platform trust strip and editable profile data
+- `components/sections/case-studies/` — expandable live-project carousel and project data
 - `components/sections/approach/` — agency process
 - `components/sections/about/`, `insights/`, `faq/`, `contact/` — supporting sections
 - `lib/site-data.ts` — shared services, process and FAQ content

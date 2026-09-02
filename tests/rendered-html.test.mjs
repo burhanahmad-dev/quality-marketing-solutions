@@ -35,6 +35,8 @@ test("server-renders the QMS marketing website", async () => {
   assert.match(html, /id="reviews"/);
   assert.match(html, /Proof you can check\./);
   assert.match(html, /Google Reviews/);
+  assert.match(html, /Alooverse/);
+  assert.match(html, /View live project/);
   assert.match(html, /id="approach"/);
   assert.match(html, /id="contact"/);
   assert.match(html, /hero-marketing-process\.mp4/);
@@ -62,6 +64,7 @@ test("keeps the production assets and responsive design in place", async () => {
   await access(new URL("../public/favicon.png", import.meta.url));
   await access(new URL("../public/fonts/nunito-sans-latin.woff2", import.meta.url));
   await access(new URL("../public/fonts/poppins-regular.woff2", import.meta.url));
+  await access(new URL("../public/projects/alooverse-homepage.png", import.meta.url));
   assert.ok(videoInfo.size > 5_000_000 && videoInfo.size < 15_000_000);
   assert.ok(posterInfo.size > 20_000);
   assert.ok(socialInfo.size > 100_000);

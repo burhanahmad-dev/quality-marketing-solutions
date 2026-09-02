@@ -8,6 +8,7 @@ import { HeroSection } from "../components/sections/hero/HeroSection";
 import { DecisionSection } from "../components/sections/insights/DecisionSection";
 import { OverviewSection } from "../components/sections/overview/OverviewSection";
 import { ReviewSection } from "../components/sections/reviews/ReviewSection";
+import { CaseStudiesSection } from "../components/sections/case-studies/CaseStudiesSection";
 
 export default function Home() {
   return (
@@ -21,6 +22,7 @@ export default function Home() {
 
         <div className="paper-content">
           <ReviewSection />
+          <CaseStudiesSection />
           <PointOfViewSection />
           <ApproachSection />
           <DecisionSection />
