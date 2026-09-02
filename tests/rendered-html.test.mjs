@@ -32,6 +32,9 @@ test("server-renders the QMS marketing website", async () => {
   assert.match(html, /Quality Marketing Solutions/i);
   assert.match(html, /Turn clicks into customers\./);
   assert.match(html, /id="services"/);
+  assert.match(html, /id="reviews"/);
+  assert.match(html, /Proof you can check\./);
+  assert.match(html, /Google Reviews/);
   assert.match(html, /id="approach"/);
   assert.match(html, /id="contact"/);
   assert.match(html, /hero-marketing-process\.mp4/);

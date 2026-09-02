@@ -72,6 +72,7 @@ export function OverviewSection() {
   return (
     <div className="intro-panel-wrap" id="main-content">
       <section
+        id="services"
         className="intro-panel"
         aria-label="Quality Marketing Solutions overview"
         onMouseEnter={() => setIsPaused(true)}

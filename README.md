@@ -42,7 +42,7 @@ working inside one large file:
 - `components/ui/` — reusable brand UI
 - `components/sections/hero/` — hero video, headline and service positioning
 - `components/sections/overview/` — curved agency overview panel
-- `components/sections/services/` — service capability cards
+- `components/sections/reviews/` — review-platform trust strip and editable profile data
 - `components/sections/approach/` — agency process
 - `components/sections/about/`, `insights/`, `faq/`, `contact/` — supporting sections
 - `lib/site-data.ts` — shared services, process and FAQ content

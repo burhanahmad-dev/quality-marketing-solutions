@@ -7,7 +7,7 @@ import { FaqSection } from "../components/sections/faq/FaqSection";
 import { HeroSection } from "../components/sections/hero/HeroSection";
 import { DecisionSection } from "../components/sections/insights/DecisionSection";
 import { OverviewSection } from "../components/sections/overview/OverviewSection";
-import { ServicesSection } from "../components/sections/services/ServicesSection";
+import { ReviewSection } from "../components/sections/reviews/ReviewSection";
 
 export default function Home() {
   return (
@@ -20,7 +20,7 @@ export default function Home() {
         <OverviewSection />
 
         <div className="paper-content">
-          <ServicesSection />
+          <ReviewSection />
           <PointOfViewSection />
           <ApproachSection />
           <DecisionSection />
