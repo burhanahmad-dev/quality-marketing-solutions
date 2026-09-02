@@ -880,7 +880,7 @@ summary {
 .case-studies-section {
   padding: clamp(4.5rem, 7vw, 7rem) var(--pad);
   color: var(--ink);
-  background: #f6f0e6;
+  background: #fff;
 }
 
 .case-studies-heading {
