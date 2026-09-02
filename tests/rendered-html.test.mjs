@@ -30,8 +30,7 @@ test("server-renders the QMS marketing website", async () => {
 
   const html = await response.text();
   assert.match(html, /Quality Marketing Solutions/i);
-  assert.match(html, /Digital marketing/);
-  assert.match(html, /built to perform\./);
+  assert.match(html, /Turn clicks into customers\./);
   assert.match(html, /id="services"/);
   assert.match(html, /id="approach"/);
   assert.match(html, /id="contact"/);
@@ -39,6 +38,8 @@ test("server-renders the QMS marketing website", async () => {
   assert.match(html, /hero-marketing-process-poster\.jpg/);
   assert.match(html, /Digital Marketing/);
   assert.match(html, /Social Media Marketing/);
+  assert.match(html, /Search Engine Optimization/);
+  assert.match(html, /Paid Media Advertising/);
   assert.doesNotMatch(html, /Pause background video|motion-control/);
   assert.match(html, /type="application\/ld\+json"/);
   assert.doesNotMatch(html, /hero-growth\.mp4|hero-poster\.webp/);

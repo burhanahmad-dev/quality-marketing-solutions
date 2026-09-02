@@ -273,7 +273,7 @@ summary {
   align-items: flex-start;
   flex-direction: column;
   max-width: 52rem;
-  padding: clamp(7.5rem, 16vh, 10rem) var(--pad) clamp(3.5rem, 8vh, 5rem);
+  padding: clamp(9.5rem, 24vh, 11.5rem) var(--pad) clamp(2.5rem, 5vh, 3.5rem);
   text-align: left;
 }
 
@@ -305,21 +305,13 @@ summary {
 }
 
 .hero h1 {
-  max-width: 11ch;
+  max-width: 13ch;
   margin: 1rem 0 0;
   font-family: "Nunito Sans", Arial, sans-serif;
   font-size: clamp(3rem, 4.8vw, 5.4rem);
   font-weight: 700;
-  line-height: 0.92;
+  line-height: 0.95;
   letter-spacing: -0.045em;
-}
-
-.hero h1 .hero-title-line {
-  display: block;
-  color: white;
-}
-
-.hero h1 .hero-title-accent {
   color: white;
 }
 
@@ -422,12 +414,14 @@ summary {
   min-height: 24rem;
   margin: 0;
   padding: clamp(1.25rem, 2.7vw, 2.7rem);
-  border-radius: clamp(1.25rem, 2.2vw, 2.2rem);
+  overflow: hidden;
+  border: 1px solid rgba(6, 45, 33, 0.1);
+  border-radius: clamp(2rem, 3.5vw, 3.1rem);
   color: var(--ink);
   background: var(--paper);
-  box-shadow: 0 1.5rem 5rem rgba(0, 0, 0, 0.22);
-  grid-template-columns: 0.8fr 1.05fr 1.35fr;
-  gap: clamp(1.5rem, 3vw, 3.25rem);
+  box-shadow: 0 1.4rem 4.5rem rgba(6, 45, 33, 0.14);
+  grid-template-columns: 0.66fr 0.85fr 1.65fr;
+  gap: clamp(1.1rem, 2vw, 2rem);
 }
 
 .intro-panel .mini-label,
@@ -460,8 +454,38 @@ summary {
   content: "·";
 }
 
+.service-menu li {
+  display: flex;
+  align-items: baseline;
+}
+
+.service-menu button {
+  padding: 0;
+  border: 0;
+  color: inherit;
+  background: transparent;
+  font: inherit;
+  text-align: left;
+}
+
+.service-menu li.is-active,
+.service-menu li.is-active button {
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.service-menu li.is-active::before {
+  color: var(--olive-dark);
+  content: "→";
+}
+
 .intro-copy {
   padding: 0.6rem 0;
+  transform: translateX(-0.7rem);
+}
+
+.intro-copy-slide {
+  animation: feature-copy-in 520ms ease both;
 }
 
 .intro-copy h2,
@@ -473,7 +497,7 @@ summary {
   letter-spacing: -0.055em;
 }
 
-.intro-copy > p:not(.mini-label),
+.intro-copy-slide > p:not(.mini-label),
 .feature-card > p:not(.mini-label) {
   margin: 1.35rem 0 0;
   color: var(--muted);
@@ -481,7 +505,7 @@ summary {
   line-height: 1.65;
 }
 
-.intro-copy > p:not(.mini-label) {
+.intro-copy-slide > p:not(.mini-label) {
   color: var(--muted);
 }
 
@@ -502,19 +526,43 @@ summary {
 
 .feature-card {
   position: relative;
-  min-height: 18.5rem;
-  padding: clamp(1.5rem, 3vw, 2.8rem);
+  min-height: 20.5rem;
+  padding: 0;
   overflow: hidden;
-  border-radius: 1.5rem;
+  border-radius: 1.8rem;
   color: white;
-  background:
-    linear-gradient(105deg, rgba(4, 56, 39, 0.97), rgba(4, 56, 39, 0.8)),
-    url("/marketing-insights-poster.webp") center / cover;
+  background: #0a1813;
+  isolation: isolate;
 }
 
-.feature-card > * {
-  position: relative;
-  z-index: 1;
+.feature-card-image,
+.feature-card-shade {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.feature-card-image {
+  z-index: -2;
+  object-fit: cover;
+  animation: feature-image-in 700ms ease both;
+}
+
+.feature-card-shade {
+  z-index: -1;
+  background:
+    linear-gradient(90deg, rgba(4, 22, 16, 0.97) 0%, rgba(4, 22, 16, 0.84) 56%, rgba(4, 22, 16, 0.34) 100%),
+    linear-gradient(0deg, rgba(4, 22, 16, 0.72), transparent 55%);
+}
+
+.feature-card-slide {
+  display: flex;
+  min-height: 20.5rem;
+  align-items: flex-start;
+  flex-direction: column;
+  padding: clamp(1.55rem, 2.6vw, 2.35rem) clamp(1.45rem, 2.5vw, 2.25rem) 4.6rem;
+  animation: feature-copy-in 520ms ease both;
 }
 
 .feature-card .mini-label {
@@ -522,33 +570,121 @@ summary {
 }
 
 .feature-card h2 {
-  max-width: 12ch;
+  max-width: 15ch;
+  margin-top: 0.8rem;
+  font-size: clamp(1.75rem, 2.55vw, 2.65rem);
+  text-shadow: 0 0.1rem 1.2rem rgba(0, 0, 0, 0.28);
 }
 
-.feature-card > p:not(.mini-label) {
-  max-width: 32rem;
-  color: rgba(255, 255, 255, 0.62);
+.feature-card-slide > p:not(.mini-label):not(.feature-outcome) {
+  max-width: 31rem;
+  margin: 1rem 0 0;
+  color: rgba(255, 255, 255, 0.76);
+  font-size: 0.79rem;
+  line-height: 1.58;
 }
 
-.button-light {
-  margin-top: 1.5rem;
+.feature-card-slide .feature-outcome {
+  margin: 0.72rem 0 0;
+  color: white;
+  font-size: 0.9rem;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.feature-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.38rem;
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.feature-tags li {
+  padding: 0.34rem 0.58rem;
+  border: 1px solid rgba(255, 255, 255, 0.23);
+  border-radius: 999px;
+  color: rgba(255, 255, 255, 0.88);
+  background: rgba(255, 255, 255, 0.08);
+  font-size: 0.58rem;
+  font-weight: 600;
+  backdrop-filter: blur(0.5rem);
+}
+
+.feature-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin-top: 1.1rem;
+  padding-bottom: 0.24rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.68);
+  color: white;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.feature-card-controls {
+  position: absolute;
+  z-index: 2;
+  right: 1.1rem;
+  bottom: 1.05rem;
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.feature-card-controls > button {
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 50%;
+  color: white;
+  background: rgba(4, 22, 16, 0.4);
+  font-size: 0.82rem;
+  backdrop-filter: blur(0.6rem);
+}
+
+.feature-card-controls > button:hover,
+.feature-card-controls > button:focus-visible {
   color: var(--ink);
-  background: white;
-}
-
-.button-light:hover {
   background: var(--olive);
 }
 
-.feature-orbit {
-  position: absolute;
-  z-index: 0;
-  top: -6rem;
-  right: -4rem;
-  width: 15rem;
-  height: 15rem;
-  border: 1px solid rgba(186, 240, 90, 0.28);
-  border-radius: 50%;
+.feature-dots {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.feature-dots button {
+  width: 0.38rem;
+  height: 0.38rem;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.4);
+  transition: width 180ms ease, background 180ms ease;
+}
+
+.feature-dots button.is-active {
+  width: 1.2rem;
+  background: var(--olive);
+}
+
+@keyframes feature-copy-in {
+  from {
+    opacity: 0;
+    transform: translateX(0.75rem);
+  }
+}
+
+@keyframes feature-image-in {
+  from {
+    opacity: 0;
+    transform: scale(1.035);
+  }
 }
 
 .feature-orbit::after {
@@ -1213,7 +1349,7 @@ summary {
 
 @media (max-width: 900px) {
   .intro-panel {
-    grid-template-columns: 0.8fr 1.05fr 1.35fr;
+    grid-template-columns: 0.58fr 0.76fr 1.66fr;
   }
 
   .feature-card {
@@ -1377,6 +1513,7 @@ summary {
 
   .intro-copy {
     padding: 0.6rem 0.35rem 1.2rem;
+    transform: none;
   }
 
   .feature-card {

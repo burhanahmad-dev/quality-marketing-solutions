@@ -39,18 +39,15 @@ export function HeroSection() {
 
       <div className="hero-content">
         <p className="hero-kicker">Independent digital growth agency</p>
-        <h1 id="hero-title">
-          <span className="hero-title-line">Digital marketing</span>
-          <span className="hero-title-line hero-title-accent">built to perform.</span>
-        </h1>
+        <h1 id="hero-title">Turn clicks into customers.</h1>
         <ul className="hero-service-list" aria-label="Core services">
           <li>Digital Marketing</li>
           <li>SEO</li>
           <li>Social Media Marketing</li>
         </ul>
         <p className="hero-description">
-          A full-service digital agency connecting strategy, SEO, media and
-          conversion design to create measurable business growth.
+          We build connected SEO, paid media and social campaigns that turn
+          attention into qualified leads, stronger sales and measurable growth.
         </p>
         <div className="hero-actions">
           <a className="button button-accent" href="#contact">
