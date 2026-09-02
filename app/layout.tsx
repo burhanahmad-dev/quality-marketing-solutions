@@ -12,11 +12,11 @@ export async function generateMetadata(): Promise<Metadata> {
 
   return {
     metadataBase,
-    title: "Quality Marketing Solutions | SEO & Growth Marketing Agency",
+    title: "Quality Marketing Solutions | Digital Growth Agency",
     description:
-      "QMS connects SEO, paid media, social and conversion-led web design into one accountable growth system.",
+      "QMS connects SEO, paid media, social media and conversion-led web design into one clear digital growth system.",
     keywords: [
-      "marketing agency",
+      "digital marketing agency",
       "SEO agency",
       "paid media",
       "social media marketing",
@@ -29,22 +29,22 @@ export async function generateMetadata(): Promise<Metadata> {
     },
     openGraph: {
       type: "website",
-      title: "Quality Marketing Solutions",
-      description: "Turn attention into measurable growth.",
+      title: "Quality Marketing Solutions | Digital Growth Agency",
+      description: "Digital marketing built to perform.",
       siteName: "Quality Marketing Solutions",
       images: [
         {
           url: "/og.png",
           width: 1200,
           height: 630,
-          alt: "Quality Marketing Solutions — Turn attention into measurable growth",
+          alt: "Quality Marketing Solutions — Digital marketing built to perform",
         },
       ],
     },
     twitter: {
       card: "summary_large_image",
-      title: "Quality Marketing Solutions",
-      description: "Turn attention into measurable growth.",
+      title: "Quality Marketing Solutions | Digital Growth Agency",
+      description: "Digital marketing built to perform.",
       images: ["/og.png"],
     },
     alternates: {
