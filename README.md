@@ -7,7 +7,7 @@ search-friendly metadata.
 
 ## Highlights
 
-- Full-screen muted marketing/SEO hero video with a lightweight poster fallback
+- Full-screen muted marketing-process hero video with a lightweight poster fallback
 - Rotating growth message with reduced-motion support
 - SEO, paid media, social, web/CRO, branding and analytics service sections
 - Responsive mobile navigation and keyboard-visible focus styles
@@ -31,6 +31,31 @@ npm run start -- --port 3001
 ```
 
 Then open `http://localhost:3001`.
+
+## Project structure
+
+The page is organized by responsibility so each area can be updated without
+working inside one large file:
+
+- `app/` — route, metadata and global design system
+- `components/layout/` — shared header and footer
+- `components/ui/` — reusable brand UI
+- `components/sections/hero/` — hero video, headline and service positioning
+- `components/sections/overview/` — curved agency overview panel
+- `components/sections/services/` — service capability cards
+- `components/sections/approach/` — agency process
+- `components/sections/about/`, `insights/`, `faq/`, `contact/` — supporting sections
+- `lib/site-data.ts` — shared services, process and FAQ content
+- `public/` — optimized videos, images and local fonts
+
+## Stock footage
+
+The hero master was edited from three Pexels source clips supplied by the
+client: video IDs [6558143](https://www.pexels.com/video/6558143/),
+[8478956](https://www.pexels.com/video/8478956/) and
+[7651891](https://www.pexels.com/video/7651891/). The website ships a muted,
+web-optimized 1920 x 1080 edit; the original source files remain outside the
+project.
 
 ## Before public launch
 

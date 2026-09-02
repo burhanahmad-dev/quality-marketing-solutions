@@ -1,15 +1,47 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: "Nunito Sans";
+  font-style: normal;
+  font-weight: 400 900;
+  font-display: swap;
+  src: url("/fonts/nunito-sans-latin.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/poppins-regular.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/fonts/poppins-medium.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 600 800;
+  font-display: swap;
+  src: url("/fonts/poppins-semibold.woff2") format("woff2");
+}
+
 :root {
-  --canvas: #e8e4dc;
-  --paper: #f8f7f2;
-  --paper-soft: #eeece5;
-  --ink: #11110f;
-  --ink-soft: #1c1c19;
-  --olive: #c7d092;
-  --olive-dark: #65703b;
-  --muted: #6c6b64;
-  --line: rgba(17, 17, 15, 0.14);
+  --canvas: #f4faf6;
+  --paper: #ffffff;
+  --paper-soft: #eaf5ee;
+  --ink: #062d21;
+  --ink-soft: #0a4935;
+  --olive: #baf05a;
+  --olive-dark: #138255;
+  --muted: #5f7067;
+  --line: rgba(6, 45, 33, 0.14);
   --line-light: rgba(255, 255, 255, 0.16);
   --pad: clamp(1.25rem, 4.25vw, 4.75rem);
   --content: 90rem;
@@ -27,10 +59,8 @@ html {
 body {
   margin: 0;
   color: var(--ink);
-  background:
-    radial-gradient(circle at 12% 4%, rgba(255, 255, 255, 0.7), transparent 28rem),
-    var(--canvas);
-  font-family: Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background: var(--canvas);
+  font-family: "Poppins", "Helvetica Neue", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
@@ -93,13 +123,13 @@ summary {
 
 .site-shell {
   position: relative;
-  width: min(calc(100% - clamp(1rem, 4vw, 4rem)), 100rem);
-  margin: clamp(0.5rem, 2vw, 2rem) auto;
+  width: 100%;
+  margin: 0;
   overflow: hidden;
-  border: 1px solid rgba(17, 17, 15, 0.55);
-  border-radius: clamp(1.25rem, 2.5vw, 2.5rem);
+  border: 0;
+  border-radius: 0;
   background: var(--ink);
-  box-shadow: 0 2rem 7rem rgba(44, 39, 28, 0.15);
+  box-shadow: none;
 }
 
 .site-header {
@@ -114,6 +144,7 @@ summary {
   justify-content: space-between;
   padding: 1.25rem var(--pad);
   color: white;
+  font-family: "Nunito Sans", Arial, sans-serif;
 }
 
 .brand {
@@ -207,10 +238,11 @@ summary {
 
 .hero {
   position: relative;
-  min-height: clamp(43rem, 82vh, 54rem);
+  min-height: 100svh;
   overflow: hidden;
   color: white;
-  background: #181814;
+  background: #11110f;
+  font-family: "Nunito Sans", Arial, sans-serif;
 }
 
 .hero-video,
@@ -224,21 +256,25 @@ summary {
 .hero-video {
   object-fit: cover;
   object-position: center 42%;
-  filter: saturate(0.78) contrast(1.04);
+  filter: none;
 }
 
 .hero-overlay {
   background:
-    linear-gradient(90deg, rgba(9, 9, 7, 0.89) 0%, rgba(9, 9, 7, 0.64) 38%, rgba(9, 9, 7, 0.2) 73%),
-    linear-gradient(0deg, rgba(9, 9, 7, 0.72), transparent 42%),
-    linear-gradient(180deg, rgba(9, 9, 7, 0.45), transparent 30%);
+    linear-gradient(90deg, rgba(8, 8, 7, 0.84) 0%, rgba(8, 8, 7, 0.56) 42%, rgba(8, 8, 7, 0.1) 79%),
+    linear-gradient(0deg, rgba(8, 8, 7, 0.64), transparent 54%),
+    linear-gradient(180deg, rgba(8, 8, 7, 0.34), transparent 34%);
 }
 
 .hero-content {
   position: relative;
   z-index: 2;
-  max-width: 53rem;
-  padding: clamp(10.5rem, 19vh, 13rem) var(--pad) 11rem;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  max-width: 52rem;
+  padding: clamp(7.5rem, 16vh, 10rem) var(--pad) clamp(3.5rem, 8vh, 5rem);
+  text-align: left;
 }
 
 .hero-kicker,
@@ -257,6 +293,8 @@ summary {
   display: flex;
   align-items: center;
   gap: 0.7rem;
+  font-family: "Poppins", "Helvetica Neue", Arial, sans-serif;
+  font-weight: 600;
 }
 
 .hero-kicker::before {
@@ -267,37 +305,46 @@ summary {
 }
 
 .hero h1 {
-  max-width: 10ch;
-  margin: 1.5rem 0 0;
-  font-size: clamp(4rem, 7.8vw, 8rem);
-  font-weight: 650;
-  line-height: 0.84;
-  letter-spacing: -0.07em;
-}
-
-.hero h1 span {
-  display: block;
-  color: var(--olive);
-}
-
-.hero-service {
-  display: flex;
-  min-height: 1.8rem;
-  align-items: center;
-  gap: 0.8rem;
-  margin-top: 2rem;
-  font-size: 0.78rem;
-}
-
-.hero-service-label {
-  color: rgba(255, 255, 255, 0.48);
-}
-
-.hero-service strong {
-  color: white;
-  font-size: 0.9rem;
+  max-width: 11ch;
+  margin: 1rem 0 0;
+  font-family: "Nunito Sans", Arial, sans-serif;
+  font-size: clamp(3rem, 4.8vw, 5.4rem);
   font-weight: 700;
-  animation: service-in 420ms ease both;
+  line-height: 0.92;
+  letter-spacing: -0.045em;
+}
+
+.hero h1 .hero-title-line {
+  display: block;
+  color: white;
+}
+
+.hero h1 .hero-title-accent {
+  color: white;
+}
+
+.hero-service-list {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.35rem;
+  margin-bottom: 0;
+  padding: 0;
+  font-family: "Poppins", "Helvetica Neue", Arial, sans-serif;
+  list-style: none;
+}
+
+.hero-service-list li {
+  padding: 0.42rem 0.7rem;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 999px;
+  color: rgba(255, 255, 255, 0.9);
+  background: rgba(8, 8, 7, 0.24);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  backdrop-filter: blur(0.7rem);
 }
 
 @keyframes service-in {
@@ -309,8 +356,9 @@ summary {
 
 .hero-description {
   max-width: 34rem;
-  margin: 1.4rem 0 0;
-  color: rgba(255, 255, 255, 0.7);
+  margin: 1rem 0 0;
+  color: rgba(255, 255, 255, 0.78);
+  font-family: "Poppins", "Helvetica Neue", Arial, sans-serif;
   font-size: clamp(0.95rem, 1.3vw, 1.12rem);
   line-height: 1.62;
 }
@@ -319,7 +367,8 @@ summary {
   display: flex;
   flex-wrap: wrap;
   gap: 0.65rem;
-  margin-top: 2rem;
+  margin-top: 1.5rem;
+  font-family: "Poppins", "Helvetica Neue", Arial, sans-serif;
 }
 
 .button {
@@ -345,13 +394,13 @@ summary {
 }
 
 .button-accent:hover {
-  background: #dbe2ae;
+  background: #d3fa87;
 }
 
 .button-glass {
   border: 1px solid rgba(255, 255, 255, 0.23);
   color: white;
-  background: rgba(9, 9, 7, 0.24);
+  background: rgba(15, 15, 13, 0.32);
   backdrop-filter: blur(1rem);
 }
 
@@ -359,52 +408,19 @@ summary {
   background: rgba(255, 255, 255, 0.1);
 }
 
-.motion-control {
-  position: absolute;
-  z-index: 3;
-  right: var(--pad);
-  bottom: 8.5rem;
-  display: inline-flex;
-  min-height: 2.6rem;
-  align-items: center;
-  gap: 0.55rem;
-  padding: 0.6rem 0.8rem;
-  border: 1px solid rgba(255, 255, 255, 0.23);
-  border-radius: 999px;
-  color: rgba(255, 255, 255, 0.72);
-  background: rgba(17, 17, 15, 0.35);
-  cursor: pointer;
-  backdrop-filter: blur(0.9rem);
-  font-size: 0.65rem;
-}
-
-.pause-icon {
-  width: 0.55rem;
-  height: 0.62rem;
-  border-right: 2px solid var(--olive);
-  border-left: 2px solid var(--olive);
-}
-
-.play-icon {
-  width: 0;
-  height: 0;
-  border-top: 0.3rem solid transparent;
-  border-bottom: 0.3rem solid transparent;
-  border-left: 0.5rem solid var(--olive);
-}
-
 .intro-panel-wrap {
   position: relative;
   z-index: 5;
-  padding: 0 var(--pad) 2.25rem;
-  background: var(--ink);
+  padding: 0 0 2.25rem;
+  background: var(--paper);
 }
 
 .intro-panel {
   display: grid;
-  max-width: var(--content);
+  width: 100%;
+  max-width: none;
   min-height: 24rem;
-  margin: -7rem auto 0;
+  margin: 0;
   padding: clamp(1.25rem, 2.7vw, 2.7rem);
   border-radius: clamp(1.25rem, 2.2vw, 2.2rem);
   color: var(--ink);
@@ -418,6 +434,10 @@ summary {
 .capabilities-section .mini-label,
 .approach-section .mini-label,
 .faq-section .mini-label {
+  color: var(--muted);
+}
+
+.intro-panel .mini-label {
   color: var(--muted);
 }
 
@@ -461,6 +481,10 @@ summary {
   line-height: 1.65;
 }
 
+.intro-copy > p:not(.mini-label) {
+  color: var(--muted);
+}
+
 .small-link {
   display: inline-flex;
   align-items: center;
@@ -472,6 +496,10 @@ summary {
   font-weight: 750;
 }
 
+.intro-copy .small-link {
+  border-color: var(--ink);
+}
+
 .feature-card {
   position: relative;
   min-height: 18.5rem;
@@ -480,7 +508,7 @@ summary {
   border-radius: 1.5rem;
   color: white;
   background:
-    linear-gradient(105deg, rgba(17, 17, 15, 0.96), rgba(17, 17, 15, 0.78)),
+    linear-gradient(105deg, rgba(4, 56, 39, 0.97), rgba(4, 56, 39, 0.8)),
     url("/marketing-insights-poster.webp") center / cover;
 }
 
@@ -519,14 +547,14 @@ summary {
   right: -4rem;
   width: 15rem;
   height: 15rem;
-  border: 1px solid rgba(199, 208, 146, 0.25);
+  border: 1px solid rgba(186, 240, 90, 0.28);
   border-radius: 50%;
 }
 
 .feature-orbit::after {
   position: absolute;
   inset: 2.8rem;
-  border: 1px solid rgba(199, 208, 146, 0.2);
+  border: 1px solid rgba(186, 240, 90, 0.2);
   border-radius: inherit;
   content: "";
 }
@@ -591,9 +619,9 @@ summary {
   height: clamp(12rem, 19vw, 18rem);
   overflow: hidden;
   border-radius: 1rem;
-  background-color: #d9d4c8;
+  background-color: #dcece3;
   background-image:
-    linear-gradient(180deg, transparent 45%, rgba(17, 17, 15, 0.54)),
+    linear-gradient(180deg, transparent 45%, rgba(6, 45, 33, 0.6)),
     url("/marketing-insights-poster.webp");
   background-repeat: no-repeat;
   background-size: auto, cover;
@@ -710,7 +738,7 @@ summary {
   padding: clamp(3rem, 6vw, 6rem) var(--pad);
   color: white;
   background:
-    radial-gradient(circle at 12% 14%, rgba(199, 208, 146, 0.12), transparent 23rem),
+    radial-gradient(circle at 12% 14%, rgba(186, 240, 90, 0.14), transparent 23rem),
     var(--ink);
   grid-template-columns: 0.35fr 1.25fr 0.5fr;
   gap: clamp(2rem, 5vw, 6rem);
@@ -833,7 +861,7 @@ summary {
   align-items: center;
   padding: clamp(5rem, 9vw, 9rem) var(--pad);
   color: white;
-  background: #24241f;
+  background: #0b4b37;
   grid-template-columns: 0.75fr 1fr;
   gap: clamp(3rem, 8vw, 9rem);
 }
@@ -874,7 +902,7 @@ summary {
   background:
     linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
-    #161613;
+    #063b2b;
   background-size: 3rem 3rem;
   box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.24);
 }
@@ -921,7 +949,7 @@ summary {
   display: block;
   width: 14.28%;
   border-radius: 0.25rem 0.25rem 0 0;
-  background: linear-gradient(180deg, var(--olive), rgba(199, 208, 146, 0.15));
+  background: linear-gradient(180deg, var(--olive), rgba(186, 240, 90, 0.14));
 }
 
 .signal-questions p {
@@ -1028,7 +1056,9 @@ summary {
   overflow: hidden;
   padding: clamp(5rem, 9vw, 9rem) var(--pad);
   color: var(--ink);
-  background: var(--olive);
+  background:
+    radial-gradient(circle at 50% 38%, rgba(186, 240, 90, 0.28), transparent 24rem),
+    var(--paper-soft);
   text-align: center;
 }
 
@@ -1037,7 +1067,7 @@ summary {
   position: absolute;
   width: 42rem;
   height: 42rem;
-  border: 1px solid rgba(17, 17, 15, 0.1);
+  border: 1px solid rgba(6, 45, 33, 0.1);
   border-radius: 50%;
   content: "";
 }
@@ -1066,7 +1096,7 @@ summary {
 }
 
 .contact-section .mini-label {
-  color: rgba(17, 17, 15, 0.58);
+  color: rgba(6, 45, 33, 0.6);
 }
 
 .contact-section h2 {
@@ -1080,26 +1110,26 @@ summary {
 .contact-section > p:not(.mini-label) {
   max-width: 42rem;
   margin: 1.8rem auto 0;
-  color: rgba(17, 17, 15, 0.66);
+  color: rgba(6, 45, 33, 0.66);
   font-size: 0.94rem;
   line-height: 1.65;
 }
 
 .contact-button {
   margin-top: 2rem;
-  color: var(--olive);
+  color: white;
   background: var(--ink);
 }
 
 .contact-button:hover {
-  color: white;
-  background: #24241f;
+  color: var(--ink);
+  background: var(--olive);
 }
 
 .contact-section small {
   display: block;
   margin-top: 1rem;
-  color: rgba(17, 17, 15, 0.55);
+  color: rgba(6, 45, 33, 0.55);
   font-family: "SFMono-Regular", Consolas, monospace;
   font-size: 0.58rem;
   letter-spacing: 0.08em;
@@ -1183,11 +1213,11 @@ summary {
 
 @media (max-width: 900px) {
   .intro-panel {
-    grid-template-columns: 0.65fr 1fr;
+    grid-template-columns: 0.8fr 1.05fr 1.35fr;
   }
 
   .feature-card {
-    grid-column: 1 / -1;
+    grid-column: auto;
   }
 
   .section-topline,
@@ -1222,9 +1252,9 @@ summary {
   }
 
   .site-shell {
-    width: calc(100% - 0.7rem);
-    margin: 0.35rem auto;
-    border-radius: 1.35rem;
+    width: 100%;
+    margin: 0;
+    border-radius: 0;
   }
 
   .site-header {
@@ -1253,7 +1283,7 @@ summary {
     border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 50%;
     color: white;
-    background: rgba(17, 17, 15, 0.45);
+    background: rgba(4, 56, 39, 0.56);
   }
 
   .menu-button i {
@@ -1273,7 +1303,7 @@ summary {
     flex-direction: column;
     padding: 7rem 1.5rem 3rem;
     color: white;
-    background: rgba(17, 17, 15, 0.98);
+    background: rgba(4, 56, 39, 0.985);
     opacity: 0;
     pointer-events: none;
     transform: translateY(-0.75rem);
@@ -1299,7 +1329,7 @@ summary {
   }
 
   .hero {
-    min-height: 49rem;
+    min-height: 100svh;
   }
 
   .hero-video {
@@ -1308,17 +1338,17 @@ summary {
 
   .hero-overlay {
     background:
-      linear-gradient(90deg, rgba(9, 9, 7, 0.91), rgba(9, 9, 7, 0.38)),
-      linear-gradient(0deg, rgba(9, 9, 7, 0.9), transparent 58%);
+      linear-gradient(90deg, rgba(8, 8, 7, 0.88), rgba(8, 8, 7, 0.32)),
+      linear-gradient(0deg, rgba(8, 8, 7, 0.86), transparent 62%);
   }
 
   .hero-content {
-    padding-top: 10rem;
-    padding-bottom: 10rem;
+    padding-top: 7.5rem;
+    padding-bottom: 3.5rem;
   }
 
   .hero h1 {
-    font-size: clamp(3.5rem, 17vw, 5.6rem);
+    font-size: clamp(3.05rem, 13.5vw, 4.25rem);
   }
 
   .hero-description {
@@ -1330,21 +1360,12 @@ summary {
     width: 100%;
   }
 
-  .motion-control {
-    right: var(--pad);
-    bottom: 7.7rem;
-    width: 2.6rem;
-    padding: 0;
-    justify-content: center;
-    font-size: 0;
-  }
-
   .intro-panel-wrap {
     padding-bottom: 1rem;
   }
 
   .intro-panel {
-    margin-top: -6.5rem;
+    margin-top: 0;
     padding: 1.2rem;
     border-radius: 1.3rem;
     grid-template-columns: 1fr;

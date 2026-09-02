@@ -78,11 +78,14 @@ const server = createServer(async (incoming, outgoing) => {
       body: method === "GET" || method === "HEAD" ? undefined : Readable.toWeb(incoming),
       duplex: method === "GET" || method === "HEAD" ? undefined : "half",
     });
-    const response = await worker.fetch(
-      request,
-      { ASSETS: { fetch: serveAsset } },
-      { waitUntil() {}, passThroughOnException() {} },
-    );
+    const directAsset = await serveAsset(request);
+    const response = directAsset.status !== 404
+      ? directAsset
+      : await worker.fetch(
+          request,
+          { ASSETS: { fetch: serveAsset } },
+          { waitUntil() {}, passThroughOnException() {} },
+        );
 
     outgoing.statusCode = response.status;
     for (const [name, value] of response.headers) outgoing.setHeader(name, value);
